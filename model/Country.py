@@ -11,4 +11,4 @@ class Country(Base):
     cities = relationship('City', back_populates='country', lazy='dynamic')
 
     def __repr__(self):
-        return f'<Country(id={self.id}, Country={self.country})>'
+        return f'<Country(id={self.id}, country_name={self.country_name})>'

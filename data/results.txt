@@ -1,0 +1,47 @@
+Query Performance Summary: Before and After Indexing
+
+1. Query 1: Air Force Mission Count in 1943
+
+   Before Indexing:
+   - Planning Time: 0.154 ms
+   - Execution Time: 38.077 ms
+
+   After Indexing:
+   - Planning Time: 1.414 ms
+   - Execution Time: 4.258 ms
+
+   Differences:
+   - Planning Time increased by 1.260 ms (+818.18%)
+   - Execution Time decreased by 33.819 ms (-88.82%)
+   - Overall Time (Planning + Execution) decreased by 32.559 ms (-85.22%)
+
+   Indexes Created:
+   - idx_mission_date_year on EXTRACT(YEAR FROM mission_date)
+   - idx_air_force on air_force
+
+2. Query 2: Bomb Damage Assessment Count
+
+   Before Indexing:
+   - Planning Time: 0.278 ms
+   - Execution Time: 37.217 ms
+
+   After Indexing:
+   - Planning Time: 1.419 ms
+   - Execution Time: 12.232 ms
+
+   Differences:
+   - Planning Time increased by 1.141 ms (+410.43%)
+   - Execution Time decreased by 24.985 ms (-67.13%)
+   - Overall Time (Planning + Execution) decreased by 23.844 ms (-63.60%)
+
+   Index Created:
+   - idx_mission_bomb_damage_airborne on (airborne_aircraft, bomb_damage_assessment, target_country)
+
+Summary:
+
+Both queries showed significant improvements in execution time after indexing, despite slight increases in planning time. The overall performance (planning + execution time) improved for both queries:
+
+1. Query 1 improved by 85.22%
+2. Query 2 improved by 63.60%
+
+The increase in planning time is expected, as the query planner now has to consider the newly created indexes. However, this small increase is vastly outweighed by the substantial reduction in execution time, resulting in much faster overall query performance.

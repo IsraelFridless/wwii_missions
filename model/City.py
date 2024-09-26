@@ -14,4 +14,4 @@ class City(Base):
     country = relationship('Country', back_populates='cities', lazy='joined')
 
     def __repr__(self):
-        return f'<City(id={self.id}, city={self.city})>'
+        return f'<City(id={self.id}, city_name={self.city_name})>'

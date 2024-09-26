@@ -19,4 +19,4 @@ class Target(Base):
 
 
     def __repr__(self):
-        return f'<Target(id={self.id}, country_id={self.country_id}, city_id={self.city_id}, industry_id={self.industry_id}, type_id={self.type_id}, latitude={self.latitude}, longitude={self.longitude})>'
+        return f'<Target(id={self.id}, priority={self.priority}, latitude={self.latitude}, longitude={self.longitude})>'
