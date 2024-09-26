@@ -6,7 +6,6 @@ from config.base import Base
 class Target(Base):
     __tablename__ = 'targets'
     id = Column(BigInteger, primary_key=True, autoincrement=True)
-    country_id = Column(Integer, ForeignKey('countries.id'), nullable=True)
     city_id = Column(Integer, ForeignKey('cities.id'), nullable=True)
     industry_id = Column(Integer, ForeignKey('target_industries.id'), nullable=True)
     type_id = Column(Integer, ForeignKey('target_types.id'), nullable=True)
@@ -14,7 +13,6 @@ class Target(Base):
     latitude = Column(Numeric(10, 6),  nullable=True)
     longitude = Column(Numeric(10, 6), nullable=True)
 
-    country = relationship('Country', back_populates='targets', lazy='joined')
     city = relationship('City', back_populates='targets', lazy='joined')
     industry = relationship('TargetIndustry', back_populates='targets', lazy='joined')
     type = relationship('TargetType', back_populates='targets', lazy='joined')

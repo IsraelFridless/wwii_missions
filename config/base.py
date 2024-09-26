@@ -13,3 +13,5 @@ def session_factory():
     if not database_exists(engine.url):
         create_database(engine.url)
     return _SessionFactory()
+
+
