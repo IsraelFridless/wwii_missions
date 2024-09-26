@@ -1,5 +1,7 @@
 import logging
-from utils.DatabaseManager import execute_sql_from_file
+
+from controllers.target_controller import targets_blueprint
+from utils.database_manager import execute_sql_from_file
 from flask import Flask
 
 from model import Target, Country, City, TargetIndustry, TargetType
@@ -11,7 +13,8 @@ app = Flask(__name__)
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 if __name__ == '__main__':
-    drop_tables()
-    create_tables()
-    execute_sql_from_file('./sql_files/normalize_tables.sql')
+    # drop_tables()
+    # create_tables()
+    # execute_sql_from_file('./sql_files/normalize_tables.sql')
+    app.register_blueprint(targets_blueprint, url_prefix="/api/targets")
     app.run(debug=True)

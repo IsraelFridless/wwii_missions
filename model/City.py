@@ -11,7 +11,7 @@ class City(Base):
 
 
     targets = relationship('Target', back_populates='city', lazy='dynamic')
-    country = relationship('TargetCountry', back_populates='city', lazy='dynamic')
+    country = relationship('Country', back_populates='cities', lazy='joined')
 
     def __repr__(self):
         return f'<City(id={self.id}, city={self.city})>'

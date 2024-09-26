@@ -1,3 +1,12 @@
+
+--indexing
+CREATE INDEX idx_mission_date_year
+ON mission ((EXTRACT(YEAR FROM mission_date)));
+
+CREATE INDEX idx_air_force
+ON mission (air_force);
+
+
 SELECT air_force, COUNT(*) AS mission_count
 FROM mission
 WHERE EXTRACT(YEAR FROM mission_date) = 1943

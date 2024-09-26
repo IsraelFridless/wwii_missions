@@ -6,12 +6,12 @@ from config.base import Base
 class Target(Base):
     __tablename__ = 'targets'
     id = Column(BigInteger, primary_key=True, autoincrement=True)
-    city_id = Column(Integer, ForeignKey('cities.id'), nullable=True)
-    industry_id = Column(Integer, ForeignKey('target_industries.id'), nullable=True)
-    type_id = Column(Integer, ForeignKey('target_types.id'), nullable=True)
     priority = Column(Integer, nullable=True)
     latitude = Column(Numeric(10, 6),  nullable=True)
     longitude = Column(Numeric(10, 6), nullable=True)
+    city_id = Column(Integer, ForeignKey('cities.id'), nullable=True)
+    industry_id = Column(Integer, ForeignKey('target_industries.id'), nullable=True)
+    type_id = Column(Integer, ForeignKey('target_types.id'), nullable=True)
 
     city = relationship('City', back_populates='targets', lazy='joined')
     industry = relationship('TargetIndustry', back_populates='targets', lazy='joined')
