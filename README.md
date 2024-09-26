@@ -27,7 +27,7 @@ This project is designed to manage and analyze World War II mission data. The pr
 
 ## Usage
 
-To run the project, execute the following command:
+To run the project, first uncomment the function calls in the main.py file, and then execute the following command:
 ```bash
 python main.py
 ```
